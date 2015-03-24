@@ -12,8 +12,7 @@ var PATHS = {
     },
     lib: [
       'node_modules/gulp-traceur/node_modules/traceur/bin/traceur-runtime.js',
-      'node_modules/es6-module-loader/dist/es6-module-loader-sans-promises.src.js',
-      'node_modules/systemjs/lib/extension-register.js',
+      'node_modules/es6-micro-loader/dist/system-polyfill.js',
       'node_modules/angular2/node_modules/zone.js/zone.js'
     ]
 };
