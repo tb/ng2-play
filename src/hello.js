@@ -11,8 +11,8 @@ import {If} from 'angular2/angular2';
 export class Hello {
     name: string = 'World';
     constructor() {
-        setTimeout(() => {
+       /* setTimeout(() => {
           this.name = 'NEW World'
-        }, 2000);
+        }, 2000);*/
     }
 }
