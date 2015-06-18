@@ -1,0 +1,13 @@
+<h1>Login Form (Model Driven)</h1>
+
+<form (ng-submit)="onSubmit()" [ng-form-model]="form" #f="form">
+    <p>
+        <label for="login">Login</label>
+        <input type="text" id="login" ng-control="login">
+    </p>
+    <p>
+        <label for="password">Password</label>
+        <input type="password" id="password" ng-control="password">
+    </p>
+    <button type="submit" [disabled]="!f.form.valid">Submit</button>
+</form>
