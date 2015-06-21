@@ -14,15 +14,14 @@
   },
   "homepage": "https://github.com/pkozlowski-opensource/ng2-play",
   "devDependencies": {
-    "connect": "^3.3.4",
     "del": "~1.1.1",
     "gulp": "~3.8.10",
     "gulp-plumber": "^1.0.0",
     "gulp-rename": "~1.2.0",
     "gulp-size": "^1.2.1",
     "gulp-traceur": "0.17.*",
-    "open": "0.0.5",
-    "serve-static": "~1.8.1",
+    "browser-sync": "~2.7.12",
+    "connect-history-api-fallback": "~1.1.0",
     "systemjs-builder": "^0.10.3",
     "through2": "~0.6.3"
   },

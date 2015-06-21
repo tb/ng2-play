@@ -72,21 +72,22 @@ gulp.task('angular2', function () {
 });
 
 gulp.task('play', ['default'], function () {
+  var browserSync = require('browser-sync');
+  var historyApiFallback = require('connect-history-api-fallback');
 
-    var http = require('http');
-    var connect = require('connect');
-    var serveStatic = require('serve-static');
-    var open = require('open');
+  browserSync.init(null, {
+    server: {
+      port: 9000,
+      baseDir: __dirname + '/dist/',
+      middleware: [historyApiFallback({
+        //logger: console.log.bind(console)
+      })]
+    },
+    files: __dirname + '/dist/**/*', // full-page refresh on file changes
+  });
 
-    var port = 9000, app;
-
-    gulp.watch(PATHS.src.html, ['html']);
-    gulp.watch(PATHS.src.js, ['js']);
-
-    app = connect().use(serveStatic(__dirname + '/dist'));  // serve everything that is static
-    http.createServer(app).listen(port, function () {
-      open('http://localhost:' + port);
-    });
+  gulp.watch(PATHS.src.html, ['html'], browserSync.reload);
+  gulp.watch(PATHS.src.js, ['js'], browserSync.reload);
 });
 
 gulp.task('default', ['js', 'html', 'libs']);
