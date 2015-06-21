@@ -3,6 +3,8 @@ var del = require('del');
 var plumber = require('gulp-plumber');
 var rename = require('gulp-rename');
 var traceur = require('gulp-traceur');
+var child_process = require('child_process');
+var api_process = null;
 
 var PATHS = {
     src: {
@@ -67,11 +69,13 @@ gulp.task('angular2', function () {
 
   var Builder = require('systemjs-builder');
   var builder = new Builder(buildConfig);
-    builder.build('angular2/router', 'dist/lib/router.js', {});
+
+  builder.build('angular2/router', 'dist/lib/router.js', {});
+  builder.build('angular2/http', 'dist/lib/http.js', {});
   return builder.build('angular2/angular2', 'dist/lib/angular2.js', {});
 });
 
-gulp.task('play', ['default'], function () {
+gulp.task('play', ['default', 'api'], function () {
   var browserSync = require('browser-sync');
   var historyApiFallback = require('connect-history-api-fallback');
 
@@ -88,6 +92,12 @@ gulp.task('play', ['default'], function () {
 
   gulp.watch(PATHS.src.html, ['html'], browserSync.reload);
   gulp.watch(PATHS.src.js, ['js'], browserSync.reload);
+  gulp.watch('api/**/*', ['api'], browserSync.reload);
+});
+
+gulp.task('api', function () {
+  if (api_process) { api_process.kill('SIGHUP') }
+  api_process = child_process.exec('./node_modules/dyson/bin/dyson.js api');
 });
 
 gulp.task('default', ['js', 'html', 'libs']);

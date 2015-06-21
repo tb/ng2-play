@@ -1,0 +1,8 @@
+<h1>Users ({{ users?.length }})</h1>
+
+<table class="users">
+    <tr *ng-for="#user of users">
+        <td><img src="{{user.avatar_url}}"></td>
+        <td>{{user.email}}</td>
+    </tr>
+</table>
