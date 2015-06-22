@@ -1,0 +1,53 @@
+<h1>Checkout Form (Model Driven)</h1>
+
+<form (ng-submit)="onSubmit()" [ng-form-model]="form" #f="form">
+    <p>
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" ng-control="firstName">
+        <show-error control="firstName" [errors]="['required']"></show-error>
+    </p>
+
+    <p>
+        <label for="middleName">Middle Name</label>
+        <input type="text" id="middleName" ng-control="middleName">
+    </p>
+
+    <p>
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" ng-control="lastName">
+        <show-error control="lastName" [errors]="['required']"></show-error>
+    </p>
+
+    <p>
+        <label for="country">Country</label>
+        <select id="country" ng-control="country">
+            <option *ng-for="#c of countries" [value]="c">{{c}}</option>
+        </select>
+    </p>
+
+    <p>
+        <label for="creditCard">Credit Card</label>
+        <input type="text" id="creditCard" ng-control="creditCard">
+        <show-error control="creditCard" [errors]="['required', 'invalidCreditCard']"></show-error>
+    </p>
+
+    <p>
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" ng-control="amount">
+        <show-error control="amount" [errors]="['required']"></show-error>
+    </p>
+
+    <p>
+        <label for="email">Email</label>
+        <input type="email" id="email" ng-control="email">
+        <show-error control="email" [errors]="['required']"></show-error>
+    </p>
+
+    <p>
+        <label for="comments">Comments</label>
+        <textarea id="comments" ng-control="comments">
+        </textarea>
+    </p>
+
+    <button type="submit" [disabled]="!f.form.valid">Submit</button>
+</form>
