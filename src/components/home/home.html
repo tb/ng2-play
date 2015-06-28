@@ -1,1 +1,6 @@
-<h1 *ng-if="name">Hello, {{name}}!</h1>
+<p>
+  Enter your name:
+  <input type="text" [(ng-model)]="name">
+</p>
+
+<h1 *ng-if="name">Hello {{name}}!</h1>
