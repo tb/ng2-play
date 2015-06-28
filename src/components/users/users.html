@@ -1,8 +1,18 @@
-<h1>Users ({{ users?.length }})</h1>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Users ({{ users?.length }})</h1>
+    </div>
+</div>
 
-<table class="users">
-    <tr *ng-for="#user of users">
-        <td><img src="{{user.avatar_url}}"></td>
-        <td>{{user.email}}</td>
-    </tr>
-</table>
+<div class="row">
+    <div class="col-lg-12">
+
+        <table class="users">
+            <tr *ng-for="#user of users">
+                <td><img src="{{user.avatar_url}}"></td>
+                <td>{{user.email}}</td>
+            </tr>
+        </table>
+
+    </div>
+</div>

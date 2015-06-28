@@ -37,3 +37,8 @@ After completing installation type in your favourite shell:
 * [Practical Workflows for ES6 Modules, Fluent 2014](https://www.youtube.com/watch?v=0VUjM-jJf2U)
 * [Guy Bedford: Package Management for ES6 Modules, JSConf2014](https://www.youtube.com/watch?v=szJjsduHBQQ)
 * [Loader API specification](http://whatwg.github.io/loader/) 
+
+### Theme - Start Bootstrap - SB Admin 2
+
+* [Live preview](http://ironsummitmedia.github.io/startbootstrap-sb-admin-2/pages/index.html)
+* [Sources](https://github.com/IronSummitMedia/startbootstrap-sb-admin-2/tree/gh-pages/pages)

@@ -5,6 +5,8 @@ var rename = require('gulp-rename');
 var traceur = require('gulp-traceur');
 var child_process = require('child_process');
 var api_process = null;
+var mainBowerFiles = require('main-bower-files');
+var inject = require('gulp-inject');
 
 var PATHS = {
     src: {
@@ -23,6 +25,15 @@ var PATHS = {
 
 gulp.task('clean', function(done) {
   del(['dist'], done);
+});
+
+gulp.task('bower', function() {
+  gulp.src('bower_components/**/*')
+    .pipe(gulp.dest('dist/bower_components'));
+
+  return gulp.src('src/index.html')
+    .pipe(inject(gulp.src(mainBowerFiles(), {read: false}), {name: 'bower'}))
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('js', function () {
@@ -87,10 +98,14 @@ gulp.task('play', ['default', 'api'], function () {
         //logger: console.log.bind(console)
       })]
     },
-    files: __dirname + '/dist/**/*', // full-page refresh on file changes
+    files: [
+      // full-page refresh on file changes
+      //__dirname + '/dist/components/**/*',
+      //__dirname + '/dist/*.{html,js}'
+    ]
   });
 
-  gulp.watch(PATHS.src.html, ['html'], browserSync.reload);
+  gulp.watch(PATHS.src.html, ['html', 'bower'], browserSync.reload);
   gulp.watch(PATHS.src.js, ['js'], browserSync.reload);
   gulp.watch('api/**/*', ['api'], browserSync.reload);
 });
@@ -100,4 +115,4 @@ gulp.task('api', function () {
   api_process = child_process.exec('./node_modules/dyson/bin/dyson.js api');
 });
 
-gulp.task('default', ['js', 'html', 'libs']);
+gulp.task('default', ['js', 'html', 'bower', 'libs']);

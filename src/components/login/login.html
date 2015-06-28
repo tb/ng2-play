@@ -1,13 +1,23 @@
-<h1>Login Form (Model Driven)</h1>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Login Form (Model Driven)</h1>
+    </div>
+</div>
 
-<form (ng-submit)="onSubmit()" [ng-form-model]="form" #f="form">
-    <p>
-        <label for="login">Login</label>
-        <input type="text" id="login" ng-control="login">
-    </p>
-    <p>
-        <label for="password">Password</label>
-        <input type="password" id="password" ng-control="password">
-    </p>
-    <button type="submit" [disabled]="!f.form.valid">Submit</button>
-</form>
+<div class="row">
+    <div class="col-lg-12">
+
+        <form (ng-submit)="onSubmit()" [ng-form-model]="form" #f="form">
+            <p>
+                <label for="login">Login</label>
+                <input type="text" id="login" ng-control="login">
+            </p>
+            <p>
+                <label for="password">Password</label>
+                <input type="password" id="password" ng-control="password">
+            </p>
+            <button type="submit" [disabled]="!f.form.valid">Submit</button>
+        </form>
+
+    </div>
+</div>

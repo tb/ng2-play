@@ -1,6 +1,18 @@
-<p>
-  Enter your name:
-  <input type="text" [(ng-model)]="name">
-</p>
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Home</h1>
+  </div>
+</div>
 
-<h1 *ng-if="name">Hello {{name}}!</h1>
+<div class="row">
+  <div class="col-lg-12">
+
+    <p>
+      Enter your name:
+      <input type="text" [(ng-model)]="name">
+    </p>
+
+    <h1 *ng-if="name">Hello {{name}}!</h1>
+
+  </div>
+</div>
