@@ -1,0 +1,53 @@
+<style>@import "select2.css";</style>
+
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Select2</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Select country:
+        <select [(ng-model)]="countryRaw">
+          <option value=""></option>
+          <option value="fr">France</option>
+          <option value="de">Germany</option>
+          <option value="pl">Poland</option>
+        </select>
+        <div>
+          Country: {{ countryRaw }}
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Select country (select2):
+        <select id="country" [(ng-model)]="country" data-placeholder="-- select country --">
+          <option value=""></option>
+          <option value="fr">France</option>
+          <option value="de">Germany</option>
+          <option value="pl">Poland</option>
+        </select>
+        <div>
+          Country: {{ country }}
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Select tags:
+        <select multiple id="tags" [(ng-model)]="tags"></select>
+        <div>
+          Tags: {{ tags }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
