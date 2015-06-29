@@ -10,6 +10,7 @@ var inject = require('gulp-inject');
 
 var PATHS = {
     src: {
+      css: 'src/**/*.css',
       js: 'src/**/*.ts',
       html: 'src/**/*.html'
     },
@@ -49,6 +50,11 @@ gulp.task('js', function () {
         }))
         .pipe(rename({extname: '.js'})) //hack, see: https://github.com/sindresorhus/gulp-traceur/issues/54
         .pipe(gulp.dest('dist'));
+});
+
+gulp.task('css', function () {
+  return gulp.src(PATHS.src.css)
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('html', function () {
@@ -105,6 +111,7 @@ gulp.task('play', ['default', 'api'], function () {
     ]
   });
 
+  gulp.watch(PATHS.src.css, ['css'], browserSync.reload);
   gulp.watch(PATHS.src.html, ['html', 'bower'], browserSync.reload);
   gulp.watch(PATHS.src.js, ['js'], browserSync.reload);
   gulp.watch('api/**/*', ['api'], browserSync.reload);
@@ -115,4 +122,4 @@ gulp.task('api', function () {
   api_process = child_process.exec('./node_modules/dyson/bin/dyson.js api');
 });
 
-gulp.task('default', ['js', 'html', 'bower', 'libs']);
+gulp.task('default', ['js', 'css', 'html', 'bower', 'libs']);
