@@ -12,7 +12,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
         Select country:
-        <select [(ng-model)]="countryRaw">
+        <select [(ng-model)]="countryRaw" (change)="onChange($event)">
           <option value=""></option>
           <option value="fr">France</option>
           <option value="de">Germany</option>
@@ -27,7 +27,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
         Select country (select2):
-        <select id="country" [(ng-model)]="country" data-placeholder="-- select country --">
+        <select id="country" [(ng-model)]="country" data-placeholder="-- select country --" (change)="onChange($event)">
           <option value=""></option>
           <option value="fr">France</option>
           <option value="de">Germany</option>
