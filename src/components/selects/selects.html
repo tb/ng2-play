@@ -1,4 +1,4 @@
-<style>@import "select2.css";</style>
+<style>@import "selects.css";</style>
 
 <div class="row">
   <div class="col-lg-12">
@@ -26,8 +26,8 @@
 
     <div class="panel panel-default">
       <div class="panel-body">
-        Select country (select2):
-        <select id="country" [(ng-model)]="country" data-placeholder="-- select country --" (change)="onChange($event)">
+        Select country:
+        <select id="country" [(ng-model)]="country" data-placeholder="-- select country --" select2>
           <option value=""></option>
           <option value="fr">France</option>
           <option value="de">Germany</option>
@@ -42,7 +42,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
         Select tags:
-        <select multiple id="tags" [(ng-model)]="tags"></select>
+        <select multiple id="tags" [(ng-model)]="tags" select2 data-tags="true"></select>
         <div>
           Tags: {{ tags }}
         </div>
