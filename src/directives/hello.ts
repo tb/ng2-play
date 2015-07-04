@@ -1,6 +1,5 @@
 import {
   Directive,
-  Attribute,
   ElementRef,
   onChange
   } from 'angular2/angular2';
