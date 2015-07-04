@@ -20,6 +20,6 @@ export class Hello {
   }
 
   onChange() {
-    this.el.nativeElement.innerHTML = `<h1>Hello ${this.name}</h1> (with directive with lifecycle: [onChange])`;
+    this.el.nativeElement.innerHTML = `<h1>Hello ${this.name}!</h1> with directive with lifecycle: [onChange]`;
   }
 }
