@@ -29,13 +29,12 @@
     "gulp-traceur": "0.17.*",
     "lodash": "^3.9.3",
     "main-bower-files": "^2.8.2",
-    "systemjs-builder": "^0.10.3",
+    "systemjs-builder": "^0.12.2",
     "through2": "~0.6.3"
   },
   "dependencies": {
     "angular2": "2.0.0-alpha.28",
-    "es6-module-loader": "0.16.5",
     "reflect-metadata": "^0.1.0",
-    "systemjs": "0.16.7"
+    "systemjs": "0.18.4"
   }
 }
