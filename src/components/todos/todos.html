@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Todos</h1>
+    </div>
+</div>
+
+<div class="well">
+    <input type="text" [(ng-model)]="desc">
+    <button class="btn btn-primary btn-xs" (click)="addTodo(desc)">Add</button>
+</div>
+
+<ul>
+    <li *ng-for="#todo of todos">
+        <input type="checkbox" [(ng-model)]="todo.done">
+        {{ todo.desc }}
+        <button class="btn btn-primary btn-xs" (click)="removeTodo(todo)">Delete</button>
+    </li>
+</ul>
